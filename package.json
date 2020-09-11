@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "create-react-app": "^3.4.1",
+    "create-react-native-app": "^3.5.1",
+    "react-native": "0.60.5"
+  }
+}
