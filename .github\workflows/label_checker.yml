@@ -1,5 +1,5 @@
 # This workflow will be verify that all PRs have at
-# least on the label: 'bugs', 'enhancement' before
+# least on the label: 'fix', 'enhancement' before
 # they can be merged.
 
 name: Verify PR labels

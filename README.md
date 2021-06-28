@@ -1,5 +1,5 @@
 # FullDemoProject
-A full react demo project to showcase my various engineering skills via the creation of a simple task-tracking applications for both web (using React.js) and mobile (using React Native) with a shared Ruby on Rails API.
+A full react demo project to showcase my various engineering skills via the creation of a simple task-tracking applications for both web (using React.js) and mobile (using React Native) with a shared Ruby on Rails API. 
 
 ## Getting Started
 
