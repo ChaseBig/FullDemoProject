@@ -1,21 +1,24 @@
----
-name: Label Checker
+# This workflow will be verify that all PRs have at
+# least on the label: 'bugs', 'enhancement' before
+# they can be merged.
+
+name: Verify PR labels
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - labeled
-      - unlabeled
+  pull_request_target:
+   types: [opened, labeled, unlabeled, synchronize]
 
 jobs:
-
-  check_labels:
-    name: Check labels
+  check_pr_labels:
     runs-on: ubuntu-latest
+    name: Verify that the PR has a valid label
     steps:
-      - uses: docker://agilepathway/pull-request-label-checker:latest
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Verify PR label action
+        uses: ./
+        id: verify-pr-label
         with:
-          any_of: fix,hotfix,enhancement,refactor,tech-debt,maintenance
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: "${{ secrets.LABEL_CHECKER_SECRET }}"
+          valid-labels: 'fix,hotfix,enhancement,refactor,tech-debt,maintenance'
+          pull-request-number: '${{ github.event.pull_request.number }}'
+          disable-reviews: false
